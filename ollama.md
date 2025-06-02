@@ -1,8 +1,4 @@
-Claro, aquí tienes el **documento completo en Markdown** listo para copiar, con el índice corto enlazado y sin los apartados de *Ejemplo de uso con API* y *Ventajas de la integración*:
 
----
-
-````markdown
 # 🧠 Ollama en el Proyecto
 
 ## 📋 Índice de Contenidos - Ollama
