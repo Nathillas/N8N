@@ -1,7 +1,7 @@
 # Sistema de Gestión de Incidencias con n8n
 
 Proyecto final del ciclo **ASIR (Administración de Sistemas Informáticos en Red)**
-Desarrollado por: \[Tu Nombre]
+Desarrollado por: Natalia Barrera Aguilera
 Curso 2024/2025
 
 ---
@@ -435,6 +435,5 @@ cd incidencias-n8n
 
 ---
 
-**Licencia:** Creative Commons BY-SA 4.0
-**Autor:** \[Tu Nombre]
+**Autor:** Natalia Barrera Aguilera
 **Fecha de entrega:** Junio 2025
