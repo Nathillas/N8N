@@ -1,6 +1,10 @@
 
 # 🧠 Ollama
 
+<p align="center">
+  <img src="/img/openai.png" alt="openai" width="800">
+</p>
+
 ## 📋 Índice de Contenido
 
 - [¿Qué es Ollama?](#qué-es-ollama)
