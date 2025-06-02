@@ -1,7 +1,7 @@
 
-# 🧠 Ollama en el Proyecto
+# 🧠 Ollama
 
-## 📋 Índice de Contenidos - Ollama
+## 📋 Índice de Contenido
 
 - [¿Qué es Ollama?](#qué-es-ollama)
 - [Instalación en AWS EC2](#instalación-de-ollama-en-una-instancia-aws-ec2)
