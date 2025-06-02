@@ -55,12 +55,6 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama serve
 ```
 
-Para ejecutarlo en segundo plano:
-
-```bash
-nohup ollama serve > /dev/null 2>&1 &
-```
-
 ### 6. Verificar funcionamiento
 
 ```bash
