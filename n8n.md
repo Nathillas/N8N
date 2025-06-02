@@ -1,5 +1,10 @@
 ## 🧩 Índice  
 
+
+<p align="center">
+  <img src="/img/titulon8n.png" alt="n8n" width="600">
+</p>
+
 - [🔧 ¿Qué es n8n?](#qué-es-n8n)
 - [📌 Funcionalidad de n8n en el Proyecto](#funcionalidad-de-n8n-en-el-proyecto)
 - [🚀 Instalación de n8n](#instalación-de-n8n)
