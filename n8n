@@ -1,11 +1,39 @@
+## 🧩 Índice
+
+- [🔧 ¿Qué es n8n?](#qué-es-n8n)
+- [📌 Funcionalidad de n8n en el Proyecto](#funcionalidad-de-n8n-en-el-proyecto)
+- [🚀 Instalación de n8n](#instalación-de-n8n)
+
+---
+
+## 🔧 ¿Qué es n8n?
 
 
-![n8n](img/titulon8n.png)
 
-INDICE
+**n8n** (pronunciado _"n-eight-n"_) es una herramienta de automatización de flujos de trabajo basada en nodos, de código abierto y autoalojable. Permite conectar múltiples servicios (APIs, bases de datos, archivos, etc.) para automatizar procesos sin necesidad de escribir código.
 
-QUE ES N8N
+Características principales:
 
-INSTALACION DE N8N
+- Automatización sin código o con poco código.
+- Más de 300 integraciones preconfiguradas.
+- Soporte para flujos condicionales y lógica compleja.
+- Interfaz visual muy intuitiva.
+- Capacidad de ejecutar scripts personalizados en JavaScript.
 
+---
 
+## 📌 Funcionalidad de n8n en el Proyecto
+
+En este proyecto, n8n se utiliza como el **motor de automatización principal** para:
+
+- Procesar datos que llegan desde formularios web.
+- Integrar servicios externos (como APIs, emails o bases de datos).
+- Generar notificaciones automáticas.
+- Ejecutar tareas programadas (cronjobs).
+- Registrar logs y errores de forma centralizada.
+
+Esta herramienta permite mejorar la eficiencia del sistema reduciendo la intervención manual y facilitando la escalabilidad de las integraciones.
+
+---
+
+## 🚀 Instalación de n8n
