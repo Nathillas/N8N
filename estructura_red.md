@@ -8,9 +8,6 @@ Este documento detalla la estructura de red utilizada para conectar de forma seg
 ## 📑 Índice
 
 1. [ZeroTier](#zerotier)
-
-![img](/img/zerotier.jpeg)
-
    - ¿Qué es?
    - ¿Cómo lo he implementado?
    - ¿Por qué lo he elegido?
