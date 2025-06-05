@@ -65,12 +65,6 @@ ollama serve
 curl http://localhost:11434
 ```
 
-Debe responder con algo como:
-
-```json
-{"models":[]}
-```
-
 ### 7. Acceso externo (opcional)
 
 Asegúrate de abrir el puerto `11434` en el grupo de seguridad de EC2. Luego puedes acceder a la API desde fuera:
