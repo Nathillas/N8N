@@ -61,6 +61,9 @@ ip a
 
 ## Claves SSH
 
+![img](/img/ssh.jpeg)
+
+
 ### ¿Qué es?
 Las claves SSH son un método de autenticación basado en criptografía que permite establecer conexiones seguras sin contraseñas. Se utilizan para acceder a otros equipos, automatizar procesos o realizar tareas administrativas.
 
