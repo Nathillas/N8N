@@ -9,7 +9,7 @@ Este documento detalla la estructura de red utilizada para conectar de forma seg
 
 1. [ZeroTier](#zerotier)
 
-![img](/img/zerotier.png)
+![img](/img/zerotier.jpeg)
 
    - ¿Qué es?
    - ¿Cómo lo he implementado?
