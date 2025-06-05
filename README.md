@@ -42,18 +42,6 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 
 ---
 
-## 🔧 Tecnologías utilizadas
-
-* [n8n](https://n8n.io/) (automatización de flujos)
-* [Telegram Bot API](https://core.telegram.org/bots)
-* [Ollama](https://ollama.com/) (IA local para generar mensajes automáticos)
-* MySQL (almacenamiento de incidencias)
-* ZeroTier (conectividad privada entre servidores)
-* Interfaz web generada con IA Claude
-* Servidores IONOS y AWS (nube y hosting privado)
-
----
-
 ## 📄 Funcionamiento
 
 ### Flujo en n8n
@@ -71,6 +59,17 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 ### Notificación de estado actualizado
 
 ![Telegram actualización](docs/estado_actualizado.jpeg)
+
+---
+## 🔧 Tecnologías utilizadas
+
+* [n8n](https://n8n.io/) (automatización de flujos)
+* [Telegram Bot API](https://core.telegram.org/bots)
+* [Ollama](https://ollama.com/) (IA local para generar mensajes automáticos)
+* MySQL (almacenamiento de incidencias)
+* ZeroTier (conectividad privada entre servidores)
+* Interfaz web generada con IA Claude
+* Servidores IONOS y AWS (nube y hosting privado)
 
 ---
 
