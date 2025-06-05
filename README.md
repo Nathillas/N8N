@@ -16,8 +16,11 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 
 ## 🏛️ Arquitectura del Sistema
 
-![Esquema de red](docs/esquema.jpeg)
+<p align="center">
+  <img src="img/esquemaRed.jpg" alt="Esquema de red">
+</p>
 
+img/esquemaRed.jpg
 ### Componentes:
 
 * **AWS**:
