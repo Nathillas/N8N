@@ -1,5 +1,5 @@
 
-# 🔗 Estructura de Red y Comunicación en el Proyecto de Gestión de Incidencias
+# 🔗 Estructura de Red y Comunicación en el Proyecto
 
 Este documento detalla la estructura de red utilizada para conectar de forma segura los distintos componentes del sistema de gestión de incidencias desarrollado con n8n, desplegado en servidores AWS e IONOS.
 
