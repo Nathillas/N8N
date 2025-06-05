@@ -54,7 +54,7 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 
 ---
 
-## 📄 Capturas de funcionamiento
+## 📄 Funcionamiento
 
 ### Flujo en n8n
 
@@ -71,17 +71,6 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 ### Notificación de estado actualizado
 
 ![Telegram actualización](docs/estado_actualizado.jpeg)
-
----
-
-## 🔹 Funcionalidades implementadas
-
-* [x] Registro de incidencias por Telegram
-* [x] Generación de consejos automáticos con IA
-* [x] Inserción en base de datos y respuesta al usuario
-* [x] Panel web para ver, editar y cerrar tickets
-* [x] Automatismo SSH para tareas programadas (copias de seguridad)
-* [x] ZeroTier para red privada virtual
 
 ---
 
