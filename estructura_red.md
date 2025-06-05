@@ -26,6 +26,8 @@ Este documento detalla la estructura de red utilizada para conectar de forma seg
 
 ## ZeroTier
 
+![img](/img/zerotier.jpeg)
+
 ### ¿Qué es?
 ZeroTier es una herramienta de red virtual que permite interconectar equipos de manera segura a través de Internet como si estuvieran en una red LAN local. Crea redes privadas virtuales sin necesidad de configurar túneles complejos ni abrir puertos públicos.
 
