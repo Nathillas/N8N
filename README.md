@@ -108,4 +108,3 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 ---
 
 **Autor:** Natalia Barrera Aguilera
-**Fecha de entrega:** Junio 2025
