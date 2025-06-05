@@ -88,14 +88,6 @@ Ollama se ha integrado en este proyecto como motor local para ejecutar modelos d
   ```bash
   ollama run mistral
   ```
-
-### Casos de uso integrados
-
-* Generación automática de respuestas.
-* Resumen de textos y correos.
-* Automatización con [n8n](https://n8n.io/).
-* Clasificación o análisis de entradas de formularios.
-
 ---
 
 ## 🔗 Enlace a documentación oficial
