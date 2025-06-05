@@ -2,6 +2,9 @@
   <h1>Sistema de Gestión de Incidencias con n8n</h1>
 </div>
 
+<p align="center">
+  <img src="img/n8n.jpg" alt="n8n" />
+</p>
 
 
 Proyecto final del ciclo **ASIR (Administración de Sistemas Informáticos en Red)**
