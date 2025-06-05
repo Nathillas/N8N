@@ -292,8 +292,3 @@ Para habilitar HTTPS gratis con Let’s Encrypt:
 sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx
 ```
-
-
-
-¡Y listo! Ahora tienes n8n funcionando en tu servidor Debian 12, accesible localmente o remotamente.
-
