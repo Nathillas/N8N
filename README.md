@@ -1,7 +1,13 @@
-# Sistema de Gestión de Incidencias con n8n
+<div align="center">
+  <h1>Sistema de Gestión de Incidencias con n8n</h1>
+</div>
+
+
 
 Proyecto final del ciclo **ASIR (Administración de Sistemas Informáticos en Red)**
+
 Desarrollado por: Natalia Barrera Aguilera
+
 Curso 2024/2025
 
 
