@@ -46,7 +46,7 @@ curl -s https://install.zerotier.com | bash
 sudo zerotier-cli join [NETWORK_ID]
 ```
 4. Autorizar los nodos en el panel web.
-![interfazZerotier](/img/)
+![interfazZerotier](/img/interfazZerotier.png)
 
 5. Verificar IP interna asignada con:
 ```bash
