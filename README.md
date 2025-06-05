@@ -26,20 +26,6 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
   <img src="img/esquemaRed.jpg" alt="Esquema de red">
 </p>
 
-### Componentes:
-
-* **AWS**:
-
-  * Servidor `n8n` (con IP estática)
-  * Servidor de base de datos (MySQL)
-  * Servidor de backup y Ollama
-  * Comunicación interna mediante **ZeroTier** (red privada)
-  * SSH configurado entre servicios
-
-* **IONOS**:
-
-  * Servidor web con interfaz de administración
-  * Comunicación por claves SSH a servidores en AWS
 
 ---
 
