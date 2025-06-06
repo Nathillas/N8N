@@ -80,9 +80,9 @@ El sistema también incluye mejoras clave como:
    - Todas las acciones quedan registradas en la base de datos.
    - El usuario puede recibir mensajes adicionales generados por Ollama según la categoría del problema.
 
----
 
-## Interfaz de Gestión (IONOS)
+
+### Interfaz de Gestión (IONOS)
 
 Se ha implementado una interfaz sencilla en la terminal (CLI) del servidor IONOS donde:
 - Se listan incidencias.
@@ -90,11 +90,13 @@ Se ha implementado una interfaz sencilla en la terminal (CLI) del servidor IONOS
 - Se pueden añadir nuevas manualmente.
 - Todo esto controlado por una IA local (Claude) con acceso restringido mediante MCP Filesystem.
 
----
 
-## Conclusión
+
+### Conclusión
 
 Este sistema ofrece una plataforma automatizada, segura y enriquecida con inteligencia artificial para gestionar incidencias técnicas, ofreciendo una experiencia ágil tanto para usuarios como para administradores.
+
+
 ---
 ## 🔧 Tecnologías utilizadas
 
