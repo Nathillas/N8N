@@ -1,9 +1,4 @@
 
-Aquí tienes el contenido en formato Markdown listo para guardar como archivo `.md` (por ejemplo: `claude_code_terminal.md`):
-
----
-
-````markdown
 # 📘 Claude Code + MCP Filesystem: Integración en Terminal
 
 ## Índice
@@ -150,7 +145,3 @@ Esto es especialmente útil para:
 
 ---
 
-```
-
-¿Deseas que te lo empaquete en `.zip` junto al ejemplo Python o prefieres que lo subamos todo a un repo de GitHub para documentarlo como proyecto?
-```
