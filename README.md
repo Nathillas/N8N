@@ -45,50 +45,66 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 
 ### Flujo en n8n
 
-El sistema también incluye mejoras clave como:
-- **Autorización de IDs de Telegram**: Cuando una persona contacta al bot, el sistema genera una petición en el servidor para validar si se trata de un usuario legítimo antes de continuar. Una vez autorizado, el usuario puede crear incidencias libremente.
-- **Notas opcionales al cerrar incidencia**: Al finalizar una incidencia, se puede incluir una nota adicional que:
-  - Se guarda en la base de datos.
-  - Se envía automáticamente al usuario afectado vía Telegram.
+# Sistema de Gestión de Incidencias con n8n, Telegram y Ollama
 
-1. **Creación de la incidencia**:
-   - El usuario inicia una conversación con el bot de Telegram.
-   - Se le solicita que describa la incidencia.
-   - Una IA integrada mediante Ollama hace preguntas adicionales sobre el problema (formulario interactivo).
-   - Una vez completado, se registra en la base de datos.
-   - Se confirma la creación del ticket y se ofrece una respuesta automática con consejos iniciales gracias a la IA.
+Este sistema permite gestionar incidencias de forma automatizada y comunicativa, integrando flujos con **n8n**, interacción con **Telegram**, procesamiento con **Ollama** y acceso desde un **panel web de administración**.
 
-   ![Ejemplo respuesta IA y confirmación de ticket](WhatsApp%20Image%202025-06-02%20at%2013.44.24%20(2).jpeg)
+## 1. Autenticación y flujo inicial con el bot
 
-2. **Visualización en el panel de administración**:
-   - El panel muestra todos los tickets, permitiendo filtrar por estado y buscar por usuario o descripción.
-   - Cada incidencia se puede modificar, actualizar de estado o eliminar.
+Cuando un usuario inicia una conversación con el bot de Telegram:
 
-   ![Interfaz web](interfaz%20(1).PNG)
+- Se valida su ID contra una lista autorizada. Esta verificación se realiza mediante una petición al servidor, garantizando que solo usuarios legítimos puedan continuar.
+- Una vez autorizado, el usuario puede crear incidencias libremente.
 
-3. **Actualización del estado**:
-   - Cuando un técnico actualiza el estado de una incidencia, se ejecuta un flujo en n8n.
-   - Se notifica al usuario por Telegram con el nuevo estado y una posible nota.
+## 2. Creación de la incidencia
 
-   ![Notificación Telegram](WhatsApp%20Image%202025-06-02%20at%2013.48.13%20(1).jpeg)
+- El usuario describe la incidencia directamente al bot.
+- Una IA integrada con Ollama le hace preguntas complementarias para completar la información.
+- Una vez finalizado el proceso, el ticket se registra automáticamente en la base de datos.
+- Se confirma la creación de la incidencia con una respuesta automática del bot, incluyendo consejos iniciales proporcionados por la IA.
 
-4. **Ejecución automática de tareas**:
-   - Algunos tickets generan flujos automatizados como backups, escaneos, etc.
-   - Estos se ejecutan desde n8n por SSH usando comandos remotos.
+![Ejemplo respuesta IA y confirmación de ticket](WhatsApp%20Image%202025-06-02%20at%2013.44.24%20(2).jpeg)
 
-5. **Registro completo**:
-   - Todas las acciones quedan registradas en la base de datos.
-   - El usuario puede recibir mensajes adicionales generados por Ollama según la categoría del problema.
+## 3. Panel de administración web
 
+- El panel muestra todas las incidencias registradas.
+- Se puede **filtrar por estado**, buscar por usuario, palabra clave o fecha.
+- Cada ticket se puede modificar, actualizar o eliminar desde la interfaz.
 
+![Interfaz web](interfaz%20(1).PNG)
 
-### Interfaz de Gestión (IONOS)
+## 4. Gestión de actualizaciones
 
-Se ha implementado una interfaz sencilla en la terminal (CLI) del servidor IONOS donde:
-- Se listan incidencias.
-- Se pueden modificar.
-- Se pueden añadir nuevas manualmente.
-- Todo esto controlado por una IA local (Claude) con acceso restringido mediante MCP Filesystem.
+- Cuando un técnico cambia el estado de una incidencia desde el panel:
+  - Se ejecuta un flujo en **n8n** que comunica el nuevo estado al usuario vía Telegram.
+  - El mensaje incluye una nota opcional que el técnico puede escribir al cerrar la incidencia.
+  - Esta nota queda registrada en la base de datos y es enviada automáticamente al usuario afectado.
+
+![Notificación Telegram](WhatsApp%20Image%202025-06-02%20at%2013.48.13%20(1).jpeg)
+
+## 5. Ejecución automática de tareas
+
+- Algunas incidencias específicas disparan tareas automatizadas como:
+  - Backups remotos.
+  - Escaneos de seguridad.
+  - Scripts personalizados.
+- Estas tareas se ejecutan desde n8n mediante SSH en las máquinas configuradas.
+
+## 6. Interfaz de gestión en servidor IONOS
+
+En el servidor IONOS se ha desarrollado una interfaz sencilla en la terminal (CLI) que permite:
+
+- Listar todas las incidencias registradas.
+- Modificar incidencias existentes.
+- Añadir nuevas incidencias manualmente.
+
+Esta interfaz fue generada con ayuda de una IA local (Claude) y funciona de forma segura gracias a la integración con **MCP Filesystem**, que restringe el acceso a archivos y comandos sensibles del sistema.
+
+## 7. Registro completo y soporte con IA
+
+- Cada acción queda registrada en la base de datos para su trazabilidad.
+- Además, dependiendo del tipo de problema, se puede generar una respuesta adicional con Ollama para asesorar al usuario, incluso después del cierre.
+
 
 
 
