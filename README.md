@@ -18,7 +18,7 @@ Curso 2024/2025
 
 ## 📁 Descripción del Proyecto
 
-Este proyecto implementa un sistema automatizado para la gestión de incidencias utilizando **n8n**, una herramienta de automatización de flujos de trabajo. Los usuarios pueden reportar incidencias mediante un bot de Telegram, y estas se almacenan en una base de datos, se responden automáticamente con mensajes útiles generados por IA (Ollama) y se notifican a través de diferentes canales. Todo el sistema está desplegado en servidores AWS y un servidor propio en IONOS.
+Este proyecto implementa un sistema automatizado para la gestión de incidencias utilizando **n8n**, una **herramienta de automatización de flujos de trabajo**. Los usuarios pueden reportar incidencias mediante un bot de Telegram, y estas se almacenan en una base de datos, se responden automáticamente con mensajes útiles generados por IA (Ollama) y se notifican a través de diferentes canales. Todo el sistema está desplegado en servidores AWS y un servidor propio en IONOS.
 
 ---
 
