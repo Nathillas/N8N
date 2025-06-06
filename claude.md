@@ -120,7 +120,9 @@ POST /write
 Esto permite:
 
 ✅ Control total sobre lo que se ejecuta
+
 ✅ Seguridad frente a comandos destructivos
+
 ✅ Auditoría de lo que Claude hace
 
 Claude, a través de su API, puede generar scripts que tú evalúas y envías a este sistema, creando una interfaz "viva" entre IA y tu servidor.
