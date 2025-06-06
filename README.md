@@ -25,7 +25,7 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 ## 🏛️ Arquitectura del Sistema
 
 <p align="center">
-  <img src="img/esquemaRed.jpg" alt="Esquema de red">
+  <img src="img/estructuraRed.png" alt="Esquema de red">
 </p>
 
 
