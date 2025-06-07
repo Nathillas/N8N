@@ -1,5 +1,8 @@
 
 # 📘 Claude Code + MCP Filesystem: Integración en Terminal
+<p align="center">
+  <img src="img/claude.jpeg" alt="claude" width="800">
+</p>
 
 ## Índice
 
@@ -13,6 +16,8 @@
 ---
 
 ## 1. ¿Qué es Claude Code? <a name="1"></a>
+
+
 
 **Claude Code** es un modelo de lenguaje avanzado desarrollado por [Anthropic](https://www.anthropic.com) especializado en tareas de programación y asistencia técnica. A diferencia de otros modelos, Claude está diseñado para:
 
