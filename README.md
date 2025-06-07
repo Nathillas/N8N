@@ -62,15 +62,12 @@ Cuando un usuario inicia una conversación con el bot de Telegram:
 - Una vez finalizado el proceso, el ticket se registra automáticamente en la base de datos.
 - Se confirma la creación de la incidencia con una respuesta automática del bot, incluyendo consejos iniciales proporcionados por la IA.
 
-![Ejemplo respuesta IA y confirmación de ticket](WhatsApp%20Image%202025-06-02%20at%2013.44.24%20(2).jpeg)
-
 ## 3. Panel de administración web
 - Desde el panel se puede dar autorización a las nuevas ID
 - El panel muestra todas las incidencias registradas.
 - Se puede **filtrar por estado**, buscar por usuario, palabra clave o fecha.
 - Cada ticket se puede modificar, actualizar o eliminar desde la interfaz.
 
-![Interfaz web](interfaz%20(1).PNG)
 
 ## 4. Gestión de actualizaciones
 
@@ -79,7 +76,6 @@ Cuando un usuario inicia una conversación con el bot de Telegram:
   - El mensaje incluye una nota opcional que el técnico puede escribir al cerrar la incidencia.
   - Esta nota queda registrada en la base de datos y es enviada automáticamente al usuario afectado.
 
-![Notificación Telegram](WhatsApp%20Image%202025-06-02%20at%2013.48.13%20(1).jpeg)
 
 
 ## 5. Interfaz de gestión en servidor IONOS
