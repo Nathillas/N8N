@@ -1,5 +1,9 @@
 # Telegram
 
+<p align="center">
+  <img src="img/Logotipo-Telegram.webp" alt="telegram" width="550">
+</p>
+
 ## 🤖 ¿Qué es un bot de Telegram?
 
 Un **bot de Telegram** es una cuenta especial que no requiere intervención humana directa. Funciona como una "aplicación dentro de Telegram", capaz de:
