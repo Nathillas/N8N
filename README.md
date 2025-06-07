@@ -45,6 +45,9 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 
 Este sistema permite gestionar incidencias de forma automatizada y comunicativa, integrando flujos con **n8n**, interacción con **Telegram**, procesamiento con **Ollama** y acceso desde un **panel web de administración**.
 
+
+![esquemaN8N](img/estructuraN8N.png)
+
 ## 1. Autenticación y flujo inicial con el bot
 
 Cuando un usuario inicia una conversación con el bot de Telegram:
@@ -62,7 +65,7 @@ Cuando un usuario inicia una conversación con el bot de Telegram:
 ![Ejemplo respuesta IA y confirmación de ticket](WhatsApp%20Image%202025-06-02%20at%2013.44.24%20(2).jpeg)
 
 ## 3. Panel de administración web
-
+- Desde el panel se puede dar autorización a las nuevas ID
 - El panel muestra todas las incidencias registradas.
 - Se puede **filtrar por estado**, buscar por usuario, palabra clave o fecha.
 - Cada ticket se puede modificar, actualizar o eliminar desde la interfaz.
