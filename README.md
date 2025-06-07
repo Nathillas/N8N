@@ -43,10 +43,6 @@ Este proyecto implementa un sistema automatizado para la gestión de incidencias
 
 ## 📄 Funcionamiento
 
-### Flujo en n8n
-
-# Sistema de Gestión de Incidencias con n8n, Telegram y Ollama
-
 Este sistema permite gestionar incidencias de forma automatizada y comunicativa, integrando flujos con **n8n**, interacción con **Telegram**, procesamiento con **Ollama** y acceso desde un **panel web de administración**.
 
 ## 1. Autenticación y flujo inicial con el bot
