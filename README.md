@@ -1,4 +1,4 @@
-<div align="center">
+8<div align="center">
   <h1>Sistema de Gestión de Incidencias con n8n</h1>
 </div>
 
@@ -78,15 +78,8 @@ Cuando un usuario inicia una conversación con el bot de Telegram:
 
 ![Notificación Telegram](WhatsApp%20Image%202025-06-02%20at%2013.48.13%20(1).jpeg)
 
-## 5. Ejecución automática de tareas
 
-- Algunas incidencias específicas disparan tareas automatizadas como:
-  - Backups remotos.
-  - Escaneos de seguridad.
-  - Scripts personalizados.
-- Estas tareas se ejecutan desde n8n mediante SSH en las máquinas configuradas.
-
-## 6. Interfaz de gestión en servidor IONOS
+## 5. Interfaz de gestión en servidor IONOS
 
 En el servidor IONOS se ha desarrollado una interfaz sencilla en la terminal (CLI) que permite:
 
