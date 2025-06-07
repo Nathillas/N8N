@@ -103,15 +103,16 @@ Este sistema ofrece una plataforma automatizada, segura y enriquecida con inteli
 
 
 ---
+
 ## 🔧 Tecnologías utilizadas
 
-* [n8n](https://n8n.io/) (automatización de flujos)
-* [Telegram Bot API](https://core.telegram.org/bots)
-* [Ollama](https://ollama.com/) (IA local para generar mensajes automáticos)
-* MySQL (almacenamiento de incidencias)
-* ZeroTier (conectividad privada entre servidores)
-* Interfaz web generada con IA Claude
-* Servidores IONOS y AWS (nube y hosting privado)
+
+- [🗃️ Base de Datos](BaseDatos.md)
+- [🌐 Estructura de Red](estructura_red.md)
+- [⚙️ n8n](n8n.md)
+- [💬 Telegram](telegram.md)
+- [🧠 Ollama](ollama.md)
+- [🤖 Claude](claude.md)
 
 ---
 
