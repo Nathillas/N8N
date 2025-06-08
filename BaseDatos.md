@@ -84,6 +84,7 @@ CREATE TABLE incidencias (
     descripcion TEXT NOT NULL,
     estado ENUM('pendiente', 'en_proceso', 'resuelto') DEFAULT 'pendiente',
     usuario_telegram VARCHAR(100),
+    notas TEXT,
     fecha_reporte DATETIME DEFAULT CURRENT_TIMESTAMP,
     fecha_actualizacion DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -97,6 +98,7 @@ CREATE TABLE incidencias (
 | `descripcion`         | TEXT                | Descripción del problema proporcionado por el usuario |
 | `estado`              | ENUM                | Estado del ticket: pendiente, en\_proceso, resuelto   |
 | `usuario_telegram`    | VARCHAR(100)        | Usuario o ID de Telegram                              |
+| `notas`               | TEXT                | Campo interno para anotaciones o comentarios                              |
 | `fecha_reporte`       | DATETIME            | Fecha en la que se crea el ticket                     |
 | `fecha_actualizacion` | DATETIME            | Fecha de la última actualización del ticket           |
 
