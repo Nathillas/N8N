@@ -5,95 +5,125 @@
   <img src="/img/openai.png" alt="openai" width="800">
 </p>
 
-## 📋 Índice de Contenido
 
-- [¿Qué es Ollama?](#qué-es-ollama)
-- [Instalación en AWS EC2](#instalación-de-ollama-en-una-instancia-aws-ec2)
-- [Integración en el proyecto](#integración-de-ollama-en-el-proyecto)
-- [Documentación oficial](#🔗-enlace-a-documentación-oficial)
+### Índice
+
+1. [¿Qué es Ollama?](#qué-es-ollama)
+2. [Instalación de Ollama](#instalación-de-ollama)
+3. [Integración de Ollama con n8n](#integración-de-ollama-con-n8n)
+4. [Enlaces de referencia](#enlaces-de-referencia)
+
+---
+### 🧠 ¿Qué es Ollama?
+
+**Ollama** es una herramienta que permite ejecutar **modelos de lenguaje grandes (LLMs)** localmente, sin depender de servicios externos en la nube. Utiliza modelos como **Mistral**, **LLaMA**, **Gemma** o **Phi**, permitiendo generar respuestas de texto de forma rápida, privada y totalmente controlada.
+
+En el contexto de este proyecto, Ollama se utiliza para **responder automáticamente a los usuarios de Telegram** con información útil o instrucciones, simulando un asistente de inteligencia artificial.
+
+### Ventajas de usar Ollama:
+
+* ✅ No requiere conexión con APIs externas (como OpenAI).
+* ✅ Ejecuta modelos en local o en servidor propio.
+* ✅ Compatible con múltiples modelos.
+* ✅ Ideal para entornos offline o privados.
 
 ---
 
-## ¿Qué es Ollama?
+## ⚙️ Instalación de Ollama
 
-[Ollama](https://ollama.com/) es una herramienta diseñada para ejecutar modelos de lenguaje grande (LLMs) de manera local y sencilla. Permite ejecutar modelos como LLaMA, Mistral, Gemma, entre otros, a través de una interfaz de línea de comandos y una API REST. Ollama es ideal para desarrolladores que buscan privacidad, bajo coste y latencia mínima, sin depender de servicios en la nube de terceros.
+La instalación de Ollama se realizó en un servidor independiente llamado `ollama`. Los pasos seguidos fueron:
 
----
-
-## Instalación de Ollama en una instancia AWS EC2
-
-### Requisitos Previos
-
-- Instancia EC2 con Ubuntu 20.04 o 22.04 (x86_64).
-- Clave `.pem` para conexión SSH.
-- Acceso al puerto `11434` si se desea exponer el servicio.
-- Usuario `ubuntu` por defecto en EC2.
-
-### 1. Conexión a la instancia EC2
-
-```bash
-ssh -i /ruta/a/tu/llave.pem ubuntu@IP_DE_TU_INSTANCIA
-````
-
-### 2. Actualizar el sistema
-
-```bash
-sudo apt update && sudo apt upgrade -y
-```
-
-### 3. Instalar herramientas básicas
-
-```bash
-sudo apt install curl -y
-```
-
-### 4. Instalar Ollama
+1. **Descargar e instalar Ollama**:
 
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-### 5. Iniciar el servicio de Ollama
+2. **Ejecutar el modelo Mistral**:
+
+```bash
+ollama run mistral
+```
+
+Esto descarga y activa el modelo **Mistral**, que se usará para generar respuestas automáticas.
+
+3. **Configurar acceso remoto (opcional)**:
+
+Para permitir que Ollama reciba peticiones desde otros dispositivos (como el servidor `n8n`), se habilitó el servicio para escuchar en todas las interfaces:
+
+```bash
+nano ~/.ollama/config.toml
+```
+
+Añadiendo:
+
+```toml
+[server]
+address = "0.0.0.0:11434"
+```
+
+Luego se inició el servicio:
 
 ```bash
 ollama serve
 ```
 
-### 6. Verificar funcionamiento
+4. **Abrir el puerto 11434 en el firewall**:
 
 ```bash
-curl http://localhost:11434
-```
-
-### 7. Acceso externo (opcional)
-
-Asegúrate de abrir el puerto `11434` en el grupo de seguridad de EC2. Luego puedes acceder a la API desde fuera:
-
-```bash
-curl http://TU_IP_PUBLICA:11434
+ufw allow 11434
 ```
 
 ---
 
-## Integración de Ollama en el Proyecto
+## 🔗 Integración de Ollama con n8n
 
-Ollama se ha integrado en este proyecto como motor local para ejecutar modelos de lenguaje natural, eliminando la necesidad de depender de APIs externas como OpenAI o Hugging Face.
+La comunicación entre `n8n` y `ollama` se realiza a través de la red privada **ZeroTier**.
 
-### Arquitectura de la integración
+### Paso 1: Conectar ambos servidores con ZeroTier
 
-* **Infraestructura:** Ollama se ejecuta en una instancia EC2 dedicada con Ubuntu.
-* **API REST:** Las aplicaciones del proyecto (como n8n o scripts personalizados) se comunican con Ollama mediante peticiones HTTP a `http://IP_SERVIDOR:11434`.
-* **Modelo utilizado:** Se ha desplegado el modelo `mistral` con:
+```bash
+curl -s https://install.zerotier.com | sudo bash
+zerotier-cli join <ID_DE_RED>
+```
 
-  ```bash
-  ollama run mistral
-  ```
+Ambos servidores (`n8n` y `ollama`) fueron autorizados en la consola de ZeroTier, obteniendo IPs privadas como:
+
+* `n8n`: `10.x.x.1`
+* `ollama`: `10.x.x.2`
+
 ---
 
-## 🔗 Enlace a documentación oficial
+### Paso 2: Crear flujo en n8n
 
-👉 [https://ollama.com](https://ollama.com)
+1. **Telegram Trigger**: captura el mensaje del usuario.
+2. **Set Node**: recoge el contenido del mensaje (`{{$json["message"]["text"]}}`).
+3. **HTTP Request Node**:
 
+   * Método: `POST`
+   * URL: `http://10.x.x.2:11434/api/generate`
+   * Headers:
 
+     * `Content-Type: application/json`
+   * Body (RAW - JSON):
+
+     ```json
+     {
+       "model": "mistral",
+       "prompt": "{{$json[\"message\"][\"text\"]}}"
+     }
+     ```
+4. **Telegram Send Message**: devuelve la respuesta generada al usuario.
+
+---
+
+## 📎 Enlaces de referencia
+
+* Sitio oficial de Ollama: [https://ollama.com](https://ollama.com)
+* Documentación API: [https://github.com/jmorganca/ollama/blob/main/docs/api.md](https://github.com/jmorganca/ollama/blob/main/docs/api.md)
+* ZeroTier: [https://www.zerotier.com](https://www.zerotier.com)
+* n8n: [https://n8n.io](https://n8n.io)
+
+---
 
 
