@@ -1,53 +1,97 @@
-# Telegram
+# 📨 Integración de Telegram con n8n
 
 <p align="center">
   <img src="img/Logotipo-Telegram.webp" alt="telegram" width="550">
 </p>
 
-## 🤖 ¿Qué es un bot de Telegram?
 
-Un **bot de Telegram** es una cuenta especial que no requiere intervención humana directa. Funciona como una "aplicación dentro de Telegram", capaz de:
 
-- Responder automáticamente a comandos y mensajes
-- Interactuar con APIs externas
-- Automatizar tareas (como enviar alertas, gestionar reservas, responder preguntas, etc.)
-- Integrarse con servicios como n8n, bases de datos, IA, etc.
+## Índice
 
-Los bots usan la **Bot API de Telegram** y se controlan mediante peticiones HTTP o mediante librerías de desarrollo (como `python-telegram-bot`, `node-telegram-bot-api`, etc.).
+1. [¿Qué es Telegram y por qué integrarlo con n8n?](#qué-es-telegram-y-por-qué-integrarlo-con-n8n)
+2. [Requisitos previos](#requisitos-previos)
+3. [Creación de un Bot en Telegram](#creación-de-un-bot-en-telegram)
+4. [Obtener el token del bot](#obtener-el-token-del-bot)
+5. [Configurar el Trigger de Telegram en n8n](#configurar-el-trigger-de-telegram-en-n8n)
+6. [Ejemplo básico de flujo](#ejemplo-básico-de-flujo)
+7. [Consejos y buenas prácticas](#consejos-y-buenas-prácticas)
 
 ---
 
-## 🪄 Paso 1: Crear un bot desde cero con BotFather
+### ¿Qué es Telegram y por qué integrarlo con n8n?
 
-### 🧰 Requisitos previos
+**Telegram** es una aplicación de mensajería instantánea que permite la creación de bots automatizados que pueden enviar y recibir mensajes. En combinación con **n8n**, permite automatizar flujos a partir de mensajes enviados por usuarios, como por ejemplo:
 
-- Tener una cuenta de Telegram activa
-- Usar la app oficial de Telegram (móvil o escritorio)
+* Reportar incidencias
+* Solicitar información automatizada
+* Consultar el estado de sistemas o servicios
 
-### 👣 Pasos
+Integrarlo con n8n permite activar flujos automáticamente cuando un usuario envía un mensaje al bot.
 
-1. Abre la aplicación de **Telegram**.
-2. Busca el usuario **@BotFather** (es el bot oficial de Telegram para crear otros bots).
-3. Inicia un chat y escribe el comando:
-   
-```
-/start
-```
+---
 
-4. Luego crea un nuevo bot con:
-```
-/newbot
-```
+### Requisitos previos
 
-5. BotFather te pedirá:
-- Un **nombre público** para tu bot (por ejemplo: `GestorIncidenciasBot`)
-- Un **nombre de usuario único** que termine en `bot` (por ejemplo: `gestor_incidencias_bot`)
+* Tener una cuenta en Telegram.
+* Tener acceso a una instancia funcional de n8n (local o en servidor).
+* Conexión a Internet en el entorno donde corre n8n.
 
-6. Si todo está correcto, recibirás un **token de autenticación** con este aspecto:
+---
 
-```
-123456789\:ABCdefGhIJKlmNoPQRstuVWxyz
-```
+### Creación de un Bot en Telegram
 
-> 🛑 **Importante:** este token es único y sirve para controlar tu bot desde cualquier script. **Guárdalo con cuidado**.
+1. Abre Telegram y busca el usuario `@BotFather`.
+
+2. Inicia una conversación y escribe el comando:
+
+   ```
+   /newbot
+   ```
+
+3. Elige un nombre para tu bot (por ejemplo, `IncidenciasBot`).
+
+4. Elige un nombre de usuario único para tu bot, que debe terminar en `bot` (ej: `IncidenciasN8nBot`).
+
+5. El bot te devolverá un **token de acceso** como este:
+
+   ```
+   123456789:AAHkjlskjflksdfjlsdf-dfjsldfj
+   ```
+
+> **⚠️ Importante:** Guarda este token. Lo necesitarás para conectar tu bot con n8n.
+
+---
+
+### Obtener el token del bot
+
+Puedes volver a consultar el token en `@BotFather` usando `/mybots` y seleccionando tu bot.
+
+---
+
+### Configurar el Trigger de Telegram en n8n
+
+1. En n8n, crea un nuevo workflow.
+2. Añade un nodo de tipo **Telegram Trigger**.
+3. En las credenciales, crea una nueva y añade el token que te dio `@BotFather`.
+4. Selecciona el **evento** que deseas escuchar, por ejemplo: `Message`.
+5. Publica tu bot (es decir, inicia conversación desde tu Telegram y envía un mensaje al bot para probar).
+
+---
+
+### Ejemplo básico de flujo
+
+**Objetivo:** Mostrar el mensaje recibido por Telegram en la consola de n8n.
+
+1. Añade el nodo `Telegram Trigger`.
+
+2. Añade un nodo `Set` para extraer el texto:
+
+   * Campo: `mensaje`
+   * Valor: `{{$json["message"]["text"]}}`
+
+3. Añade un nodo `Console` o `Debug` para ver el contenido.
+
+4. Ejecuta el flujo y prueba mandando un mensaje al bot.
+
+---
 
