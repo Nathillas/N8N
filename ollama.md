@@ -8,9 +8,9 @@
 
 ### Índice
 
-1. [¿Qué es Ollama?](https://github.com/Nathillas/N8N/edit/main/ollama.md#-qu%C3%A9-es-ollama)
-2. [Instalación de Ollama](https://github.com/Nathillas/N8N/edit/main/ollama.md#%EF%B8%8F-instalaci%C3%B3n-de-ollama)
-3. [Integración de Ollama con n8n](https://github.com/Nathillas/N8N/edit/main/ollama.md#-integraci%C3%B3n-de-ollama-con-n8n)
+1. [¿Qué es Ollama?](https://github.com/Nathillas/N8N/blob/main/ollama.md#-qu%C3%A9-es-ollama)
+2. [Instalación de Ollama](https://github.com/Nathillas/N8N/blob/main/ollama.md#%EF%B8%8F-instalaci%C3%B3n-de-ollama)
+3. [Integración de Ollama con n8n](https://github.com/Nathillas/N8N/blob/main/ollama.md#-integraci%C3%B3n-de-ollama-con-n8n)
 4. [Enlaces de referencia](https://github.com/Nathillas/N8N/blob/main/ollama.md#-enlaces-de-referencia)
 
 ---
