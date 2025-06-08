@@ -93,5 +93,4 @@ Puedes volver a consultar el token en `@BotFather` usando `/mybots` y selecciona
 
 4. Ejecuta el flujo y prueba mandando un mensaje al bot.
 
----
 
