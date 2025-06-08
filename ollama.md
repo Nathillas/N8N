@@ -11,7 +11,7 @@
 1. [¿Qué es Ollama?](#qué-es-ollama)
 2. [Instalación de Ollama](#instalación-de-ollama)
 3. [Integración de Ollama con n8n](#integración-de-ollama-con-n8n)
-4. [Enlaces de referencia](#enlaces-de-referencia)
+4. [Enlaces de referencia](https://github.com/Nathillas/N8N/blob/main/ollama.md#-enlaces-de-referencia)
 
 ---
 ### 🧠 ¿Qué es Ollama?
