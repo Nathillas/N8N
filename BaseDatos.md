@@ -6,12 +6,12 @@ Este documento te guía paso a paso para instalar MariaDB en Debian, asegurarla,
 
 ## 📑 Índice
 
-1. [Instalación de MariaDB en Debian](#1-instalación-de-mariadb-en-debian)
-2. [Crear Base de Datos y Usuario para n8n](#2-crear-base-de-datos-y-usuario-para-n8n)
-3. [Crear Tabla para Guardar Incidencias](#3-crear-tabla-para-guardar-incidencias)
-4. [Permitir conexiones remotas](#4-opcional-permitir-conexiones-remotas)
-5. [Integración con n8n](#integración-con-n8n)
-6. [Enlaces de referencia](#enlaces-de-referencia)
+1. [Instalación de MariaDB en Debian](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-1-instalaci%C3%B3n-de-mariadb-en-debian)
+2. [Crear Base de Datos y Usuario para n8n](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-2-crear-base-de-datos-y-usuario-para-n8n)
+3. [Crear Tabla para Guardar Incidencias](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-3-crear-tabla-para-guardar-incidencias)
+4. [Permitir conexiones remotas](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-4-permitir-conexiones-remotas)
+5. [Integración con n8n](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-integraci%C3%B3n-con-n8n)
+6. [Enlaces de referencia](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-enlaces-de-referencia)
 
 ---
 
