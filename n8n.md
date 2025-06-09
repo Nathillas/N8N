@@ -244,7 +244,7 @@ Si estás en el mismo servidor, abre un navegador y visita:
 http://localhost:5678
 ```
 
-### Opcion1: Configurar acceso remoto con Nginx y HTTPS 
+### Configurar acceso remoto con Nginx y HTTPS 
 
 Si quieres acceder a n8n desde otro dispositivo, es recomendable configurar un proxy inverso seguro con Nginx.
 Instalar Nginx
@@ -284,7 +284,7 @@ sudo ln -s /etc/nginx/sites-available/n8n /etc/nginx/sites-enabled/
 sudo systemctl restart nginx
 ```
 
-### (Opcional) Configurar HTTPS con Certbot
+### Configurar HTTPS con Certbot
 
 Para habilitar HTTPS gratis con Let’s Encrypt:
 ```
