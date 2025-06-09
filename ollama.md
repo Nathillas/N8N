@@ -1,24 +1,23 @@
-
 # 🧠 Ollama
 
 <p align="center">
   <img src="/img/openai.png" alt="openai" width="800">
 </p>
 
-
 ### Índice
 
-1. [¿Qué es Ollama?](https://github.com/Nathillas/N8N/blob/main/ollama.md#-qu%C3%A9-es-ollama)
-2. [Instalación de Ollama](https://github.com/Nathillas/N8N/blob/main/ollama.md#%EF%B8%8F-instalaci%C3%B3n-de-ollama)
-3. [Integración de Ollama con n8n](https://github.com/Nathillas/N8N/blob/main/ollama.md#-integraci%C3%B3n-de-ollama-con-n8n)
-4. [Enlaces de referencia](https://github.com/Nathillas/N8N/blob/main/ollama.md#-enlaces-de-referencia)
+1. [¿Qué es Ollama?](#-qué-es-ollama)
+2. [Instalación de Ollama](#️-instalación-de-ollama)
+3. [Integración de Ollama con n8n](#-integración-de-ollama-con-n8n)
+4. [Enlaces de referencia](#-enlaces-de-referencia)
 
 ---
+
 ### 🧠 ¿Qué es Ollama?
 
 **Ollama** es una herramienta que permite ejecutar **modelos de lenguaje grandes (LLMs)** localmente, sin depender de servicios externos en la nube. Utiliza modelos como **Mistral**, **LLaMA**, **Gemma** o **Phi**, permitiendo generar respuestas de texto de forma rápida, privada y totalmente controlada.
 
-En el contexto de este proyecto, Ollama se utiliza para **responder automáticamente a los usuarios de Telegram** con información útil o instrucciones, simulando un asistente de inteligencia artificial.
+En el contexto de este proyecto, Ollama se utiliza para **responder automáticamente a los usuarios de Telegram** con información últil o instrucciones, simulando un asistente de inteligencia artificial.
 
 ### Ventajas de usar Ollama:
 
@@ -47,15 +46,15 @@ ollama run mistral
 
 Esto descarga y activa el modelo **Mistral**, que se usará para generar respuestas automáticas.
 
-3. **Configurar acceso remoto (opcional)**:
+3. **Configurar acceso remoto**:
 
-Para permitir que Ollama reciba peticiones desde otros dispositivos (como el servidor `n8n`), se habilitó el servicio para escuchar en todas las interfaces:
+Se configuró el servicio para escuchar en todas las interfaces de red, permitiendo que `n8n` acceda al puerto 11434:
 
 ```bash
 nano ~/.ollama/config.toml
 ```
 
-Añadiendo:
+Con el siguiente contenido:
 
 ```toml
 [server]
@@ -78,52 +77,40 @@ ufw allow 11434
 
 ## 🔗 Integración de Ollama con n8n
 
-La comunicación entre `n8n` y `ollama` se realiza a través de la red privada **ZeroTier**.
+La comunicación entre `n8n` y `ollama` se realiza directamente mediante la configuración de credenciales HTTP internas en el propio panel de n8n.
 
-### Paso 1: Conectar ambos servidores con ZeroTier
+### Paso 1: Crear credencial Ollama en n8n
 
-```bash
-curl -s https://install.zerotier.com | sudo bash
-zerotier-cli join <ID_DE_RED>
-```
+Desde el panel de n8n se ha creado una credencial de tipo **Ollama** especificando la IP del servidor Ollama (por ejemplo: `http://172.29.83.185:11434`). Esta configuración ha sido probada correctamente.
 
-Ambos servidores (`n8n` y `ollama`) fueron autorizados en la consola de ZeroTier, obteniendo IPs privadas como:
+<p align="center">
+  <img src="/img/4289527e-b9bc-445a-8253-8c9853b8e0de.png" alt="Credencial Ollama en n8n" />
+</p>
 
-* `n8n`: `10.x.x.1`
-* `ollama`: `10.x.x.2`
+### Paso 2: Crear flujo en n8n con el modelo Mistral
 
----
-
-### Paso 2: Crear flujo en n8n
+Dentro del flujo de trabajo:
 
 1. **Telegram Trigger**: captura el mensaje del usuario.
 2. **Set Node**: recoge el contenido del mensaje (`{{$json["message"]["text"]}}`).
-3. **HTTP Request Node**:
+3. **Ollama Node**:
 
-   * Método: `POST`
-   * URL: `http://10.x.x.2:11434/api/generate`
-   * Headers:
+   * Credencial: `Ollama account`
+   * Modelo: `mistral:latest`
 
-     * `Content-Type: application/json`
-   * Body (RAW - JSON):
+<p align="center">
+  <img src="/img/263f7928-582b-4db1-833b-e7ed71dcd556.png" alt="Flujo Ollama modelo Mistral" />
+</p>
 
-     ```json
-     {
-       "model": "mistral",
-       "prompt": "{{$json[\"message\"][\"text\"]}}"
-     }
-     ```
 4. **Telegram Send Message**: devuelve la respuesta generada al usuario.
+
+Este método simplifica la integración, sin necesidad de usar nodos HTTP manuales o configuraciones adicionales. Todo queda encapsulado mediante el nodo oficial de Ollama en n8n.
 
 ---
 
-## 📎 Enlaces de referencia
+## 📌 Enlaces de referencia
 
 * Sitio oficial de Ollama: [https://ollama.com](https://ollama.com)
 * Documentación API: [https://github.com/jmorganca/ollama/blob/main/docs/api.md](https://github.com/jmorganca/ollama/blob/main/docs/api.md)
 * ZeroTier: [https://www.zerotier.com](https://www.zerotier.com)
 * n8n: [https://n8n.io](https://n8n.io)
-
----
-
-
