@@ -1,4 +1,4 @@
-8<div align="center">
+<div align="center">
   <h1>Sistema de Gestión de Incidencias con n8n</h1>
 </div>
 
