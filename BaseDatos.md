@@ -1,17 +1,17 @@
 # 📦 Instalación y Configuración de MariaDB para Sistema de Gestión de Incidencias
 
-Este documento te guía paso a paso para instalar MariaDB en Debian, asegurarla, crear una base de datos y una tabla específica para gestionar incidencias reportadas desde Telegram a través de n8n.
+Este documento te guía paso a paso para instalar MariaDB en Debian, asegurarla, crear una base de datos y dos tablas: una tabla principal `incidencias` y una tabla temporal `incidencias_temp` para gestionar incidencias reportadas desde Telegram a través de n8n.
 
 ---
 
-## 📑 Índice
+## 📁 Índice
 
-1. [Instalación de MariaDB en Debian](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-1-instalaci%C3%B3n-de-mariadb-en-debian)
-2. [Crear Base de Datos y Usuario para n8n](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-2-crear-base-de-datos-y-usuario-para-n8n)
-3. [Crear Tabla para Guardar Incidencias](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-3-crear-tabla-para-guardar-incidencias)
-4. [Permitir conexiones remotas](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-4-permitir-conexiones-remotas)
-5. [Integración con n8n](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-integraci%C3%B3n-con-n8n)
-6. [Enlaces de referencia](https://github.com/Nathillas/N8N/blob/main/BaseDatos.md#-enlaces-de-referencia)
+1. [Instalación de MariaDB en Debian](#-1-instalación-de-mariadb-en-debian)
+2. [Crear Base de Datos y Usuario para n8n](#-2-crear-base-de-datos-y-usuario-para-n8n)
+3. [Crear Tablas para Guardar Incidencias](#-3-crear-tablas-para-guardar-incidencias)
+4. [Permitir conexiones remotas](#-4-permitir-conexiones-remotas)
+5. [Integración con n8n](#-integración-con-n8n)
+6. [Enlaces de referencia](#-enlaces-de-referencia)
 
 ---
 
@@ -64,43 +64,59 @@ GRANT ALL PRIVILEGES ON gestion_incidencias.* TO 'usuario_n8n'@'%';
 FLUSH PRIVILEGES;
 ```
 
-> 💡 Usa `'%'` para permitir conexiones remotas (útil si MariaDB está en otro servidor conectado vía ZeroTier).
+> 💡 Usa `'%'` para permitir conexiones remotas (últil si MariaDB está en otro servidor conectado vía ZeroTier).
 
 ---
 
-## 🧱 3. Crear Tabla para Guardar Incidencias
+## 🧱 3. Crear Tablas para Guardar Incidencias
 
-### 🗂️ Paso 1: Seleccionar la base de datos
+### 📂 Paso 1: Seleccionar la base de datos
 
 ```sql
 USE gestion_incidencias;
 ```
 
-### 🧾 Paso 2: Crear la tabla incidencias
+### 🗋 Paso 2: Crear la tabla temporal `incidencias_temp`
+
+```sql
+CREATE TABLE incidencias_temp (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    descripcion TEXT NOT NULL,
+    ip_servidor VARCHAR(100) DEFAULT NULL,
+    desde_cuando VARCHAR(100) DEFAULT NULL,
+    notas TEXT DEFAULT NULL,
+    estado ENUM('pendiente','en_proceso','resuelto') DEFAULT 'pendiente',
+    usuario_telegram BIGINT(20) DEFAULT NULL,
+    autorizado TINYINT(1) DEFAULT 0,
+    fecha_reporte DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
+
+### 🗋 Paso 3: Crear la tabla principal `incidencias`
 
 ```sql
 CREATE TABLE incidencias (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT(11) NOT NULL AUTO_INCREMENT,
     descripcion TEXT NOT NULL,
-    estado ENUM('pendiente', 'en_proceso', 'resuelto') DEFAULT 'pendiente',
-    usuario_telegram VARCHAR(100),
-    notas TEXT,
+    ip_servidor VARCHAR(100) DEFAULT NULL,
+    desde_cuando VARCHAR(100) DEFAULT NULL,
+    notas TEXT DEFAULT NULL,
+    estado ENUM('pendiente','en_proceso','resuelto') DEFAULT 'pendiente',
+    usuario_telegram BIGINT(20) DEFAULT NULL,
+    autorizado TINYINT(1) DEFAULT 0,
     fecha_reporte DATETIME DEFAULT CURRENT_TIMESTAMP,
-    fecha_actualizacion DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+    fecha_actualizacion DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
-### 📋 Explicación de los campos
+### 📊 Flujo de datos
 
-| Campo                 | Tipo                | Descripción                                           |
-| --------------------- | ------------------- | ----------------------------------------------------- |
-| `id`                  | INT AUTO\_INCREMENT | Identificador único (clave primaria)                  |
-| `descripcion`         | TEXT                | Descripción del problema proporcionado por el usuario |
-| `estado`              | ENUM                | Estado del ticket: pendiente, en\_proceso, resuelto   |
-| `usuario_telegram`    | VARCHAR(100)        | Usuario o ID de Telegram                              |
-| `notas`               | TEXT                | Campo interno para anotaciones o comentarios                              |
-| `fecha_reporte`       | DATETIME            | Fecha en la que se crea el ticket                     |
-| `fecha_actualizacion` | DATETIME            | Fecha de la última actualización del ticket           |
+Los datos se insertan inicialmente en la tabla `incidencias_temp` desde el bot de Telegram, y una vez que son **autorizados por un administrador**, se migran a la tabla `incidencias`, que actúa como tabla definitiva del sistema.
+
+Este enfoque permite una validación previa antes de registrar formalmente una incidencia en el sistema.
 
 ---
 
@@ -161,10 +177,8 @@ Puedes automatizar estas consultas en función de los datos recibidos por Telegr
 
 ---
 
-## 📎 Enlaces de referencia
+## 📌 Enlaces de referencia
 
 * [MariaDB Official Docs](https://mariadb.org/documentation/)
 * [n8n Documentation](https://docs.n8n.io/)
 * [ZeroTier](https://www.zerotier.com)
-
-
