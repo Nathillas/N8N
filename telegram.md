@@ -1,4 +1,4 @@
-# 📨 Integración de Telegram con n8n
+# 📨 Telegram
 
 <p align="center">
   <img src="img/Logotipo-Telegram.webp" alt="telegram" width="550">
