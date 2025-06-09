@@ -76,21 +76,6 @@ Puedes volver a consultar el token en `@BotFather` usando `/mybots` y selecciona
 4. Selecciona el **evento** que deseas escuchar, por ejemplo: `Message`.
 5. Publica tu bot (es decir, inicia conversación desde tu Telegram y envía un mensaje al bot para probar).
 
----
 
-### Ejemplo básico de flujo
-
-**Objetivo:** Mostrar el mensaje recibido por Telegram en la consola de n8n.
-
-1. Añade el nodo `Telegram Trigger`.
-
-2. Añade un nodo `Set` para extraer el texto:
-
-   * Campo: `mensaje`
-   * Valor: `{{$json["message"]["text"]}}`
-
-3. Añade un nodo `Console` o `Debug` para ver el contenido.
-
-4. Ejecuta el flujo y prueba mandando un mensaje al bot.
 
 
