@@ -84,7 +84,7 @@ La comunicación entre `n8n` y `ollama` se realiza directamente mediante la conf
 Desde el panel de n8n se ha creado una credencial de tipo **Ollama** especificando la IP del servidor Ollama (por ejemplo: `http://172.29.83.185:11434`). Esta configuración ha sido probada correctamente.
 
 <p align="center">
-  <img src="/img/4289527e-b9bc-445a-8253-8c9853b8e0de.png" alt="Credencial Ollama en n8n" />
+  <img src="/img/credencial.png" alt="Credencial Ollama en n8n" />
 </p>
 
 ### Paso 2: Crear flujo en n8n con el modelo Mistral
@@ -99,7 +99,7 @@ Dentro del flujo de trabajo:
    * Modelo: `mistral:latest`
 
 <p align="center">
-  <img src="/img/263f7928-582b-4db1-833b-e7ed71dcd556.png" alt="Flujo Ollama modelo Mistral" />
+  <img src="/img/cuentaOllama.png" alt="Flujo Ollama modelo Mistral" />
 </p>
 
 4. **Telegram Send Message**: devuelve la respuesta generada al usuario.
