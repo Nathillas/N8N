@@ -33,7 +33,7 @@ Este documento detalla la estructura de red utilizada para conectar de forma seg
 ZeroTier es una herramienta de red virtual que permite interconectar equipos de manera segura a través de Internet como si estuvieran en una red LAN local. Crea redes privadas virtuales sin necesidad de configurar túneles complejos ni abrir puertos públicos.
 
 ### ¿Cómo lo he implementado?
-He utilizado ZeroTier para conectar los servidores desplegados en AWS (n8n, base de datos, backup, IA) con el servidor web ubicado en IONOS. Esto ha permitido una red privada con IPs fijas virtuales, sin tener que exponer servicios sensibles a Internet.
+He utilizado ZeroTier para conectar los servidores desplegados en AWS (n8n, base de datos, backup, IA). Esto ha permitido una red privada con IPs fijas virtuales, sin tener que exponer servicios sensibles a Internet.
 
 ### ¿Por qué lo he elegido?
 - Seguridad: evita exponer puertos o IPs públicas.
